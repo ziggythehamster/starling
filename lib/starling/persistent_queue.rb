@@ -92,7 +92,11 @@ module StarlingServer
     private
 
     def log_path #:nodoc:
-      File.join(@persistence_path, @queue_name)
+      if PLATFORM == "i386-mswin32"
+        File.join(@persistence_path, @queue_name.gsub(/[\/\\:*?"<>|]/, "_")).tr('/', '\\')
+      else
+        File.join(@persistence_path, @queue_name)
+      end
     end
 
     def reopen_log #:nodoc:
