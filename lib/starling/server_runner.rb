@@ -288,7 +288,7 @@ module StarlingServer
     def write_pid_file
       return unless @pid_file
       FileUtils.mkdir_p(File.dirname(@pid_file))
-      File.open(@pid_file, "w") { |f| f.write(Process.pid) }
+      File.open(@pid_file, "w") { |f| f.puts(Process.pid) }
       File.chmod(0644, @pid_file)
     end
 

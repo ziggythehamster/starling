@@ -13,7 +13,7 @@ module StarlingServer
     ERR_UNKNOWN_COMMAND = "CLIENT_ERROR bad command line format\r\n".freeze
 
     # GET Responses
-    GET_COMMAND = /\Aget (.{1,250})\s*\r\n/m
+    GET_COMMAND = /\Aget (\S{1,250})\s*\r\n/m
     GET_RESPONSE       = "VALUE %s %s %s\r\n%s\r\nEND\r\n".freeze
     GET_RESPONSE_EMPTY = "END\r\n".freeze
 
